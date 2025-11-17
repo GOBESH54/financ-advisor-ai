@@ -1,0 +1,33 @@
+# Core Requirements
+flask==3.0.0
+flask-cors==4.0.0
+flask-sqlalchemy==3.1.1
+flask-caching==2.1.0
+flask-migrate==4.0.5
+flask-jwt-extended==4.5.3
+pandas==2.1.3
+numpy==1.26.2
+werkzeug==3.0.1
+marshmallow==3.20.1
+
+# PDF Processing
+PyPDF2==3.0.1
+
+# AI/ML Features
+tensorflow==2.15.0
+scikit-learn==1.3.2
+torch==2.1.1
+
+# Gemini AI (Optional but Recommended for Complex PDFs)
+google-generativeai==0.3.1
+
+# Database
+sqlalchemy==2.0.23
+
+# Utilities
+python-dateutil==2.8.2
+requests==2.31.0
+
+# Optional Advanced Features
+# speech_recognition==3.10.0  # For voice commands
+# Pillow==10.1.0  # For image processing

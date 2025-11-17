@@ -1,0 +1,121 @@
+╔══════════════════════════════════════════════════════════════╗
+║         🤖 GEMINI AI - QUICK SETUP (3 STEPS)                 ║
+╚══════════════════════════════════════════════════════════════╝
+
+STEP 1: Install Package
+------------------------
+pip install google-generativeai
+
+
+STEP 2: Get API Key
+-------------------
+1. Go to: https://makersuite.google.com/app/apikey
+2. Sign in with Google
+3. Click "Create API Key"
+4. Copy the key (starts with AIza...)
+
+
+STEP 3: Set Environment Variable
+---------------------------------
+Windows PowerShell:
+    setx GEMINI_API_KEY "your_key_here"
+
+Windows CMD:
+    setx GEMINI_API_KEY "your_key_here"
+
+Linux/Mac:
+    export GEMINI_API_KEY="your_key_here"
+    # Add to ~/.bashrc for persistence
+
+
+STEP 4: Restart Backend
+------------------------
+cd backend
+python app.py
+
+Look for: "✅ Gemini AI fallback enabled"
+
+
+╔══════════════════════════════════════════════════════════════╗
+║                    THAT'S IT! 🎉                             ║
+╚══════════════════════════════════════════════════════════════╝
+
+HOW IT WORKS:
+-------------
+1. Upload any PDF (even complex ones)
+2. Traditional parser tries first (free, fast)
+3. If it fails, Gemini AI automatically activates
+4. AI extracts all transactions
+5. Done! No manual work needed.
+
+
+COST:
+-----
+- Free tier: 15 requests/minute
+- Per statement: ~$0.002 (0.2 cents)
+- 100 statements: ~$0.20/month
+- Very affordable!
+
+
+WHEN GEMINI ACTIVATES:
+-----------------------
+✓ Complex table layouts
+✓ Scanned/image PDFs
+✓ Poor text extraction
+✓ Unusual bank formats
+✓ When regex finds 0 transactions
+
+
+LOGS TO WATCH:
+--------------
+Success:
+    INFO: Traditional parsing failed, trying Gemini AI...
+    INFO: ✅ Gemini AI successfully extracted 15 transactions
+
+No API Key:
+    WARNING: No Gemini API key found
+
+Not Installed:
+    WARNING: Gemini parser not available
+
+
+TROUBLESHOOTING:
+----------------
+Issue: "Gemini parser not available"
+Fix: pip install google-generativeai
+
+Issue: "No Gemini API key found"
+Fix: setx GEMINI_API_KEY "your_key"
+
+Issue: "Rate limit exceeded"
+Fix: Wait 1 minute (free tier: 15/min)
+
+
+OPTIONAL: Force Gemini
+-----------------------
+from gemini_pdf_parser import parse_with_gemini
+
+# Text mode (fast)
+transactions = parse_with_gemini('statement.pdf')
+
+# Vision mode (accurate for scans)
+transactions = parse_with_gemini('statement.pdf', use_vision=True)
+
+
+DISABLE GEMINI:
+---------------
+# In statement_api.py
+pdf_parser = EnhancedPDFParser(use_gemini_fallback=False)
+
+
+MORE INFO:
+----------
+- Full Guide: GEMINI_AI_SETUP.md
+- Summary: GEMINI_INTEGRATION_SUMMARY.md
+- Code: backend/gemini_pdf_parser.py
+
+
+╔══════════════════════════════════════════════════════════════╗
+║     Your PDF parser is now AI-powered! 🚀                    ║
+║     Complex PDFs? No problem. Just upload and go!            ║
+╚══════════════════════════════════════════════════════════════╝
